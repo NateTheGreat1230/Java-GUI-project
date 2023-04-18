@@ -5,13 +5,11 @@ public class Game {
     String inp = "";
     int row = 0;
     int col = 0;
-    Boardobj board = new Boardobj();
     public Game() {
         Scanner scan = new Scanner(System.in);
-
+        Boardobj board = new Boardobj();
         System.out.println("Player 1 is X player 2 is O");
         for (int i = 0; i < 9; ) {
-            Win winny = new Win(board.board);
             if (i % 2 == 0) {
                 System.out.println("Player 1 enter a row (0, 1, or 2): ");
                 row = scan.nextInt();
@@ -42,15 +40,15 @@ public class Game {
             System.out.println("-------------------");
             System.out.println("|  " + board.board[2][0] + "  |  " + board.board[2][1] + "  |  " + board.board[2][2] + "  |");
             System.out.println("-------------------");
-
-            if (winny.result.equals("X")){
+            String winny = Win.win(board.board);
+            if (winny.equals("X")){
                 System.out.println("Player 1 has won! Thanks for playing!");
                 System.exit(0);
-            }else if (winny.result.equals("O")){
+            }else if (winny.equals("O")){
                 System.out.println("Player 2 has won! Thanks for playing!");
                 System.exit(0);
-            }else if (winny.result.equals("notdoneyet")){
-            }else if (winny.result.equals("draw")){
+            }else if (winny.equals("notdoneyet")){
+            }else if (winny.equals("draw")){
                 System.out.println("This game has been a draw! Thanks for playing!");
                 System.exit(0);
             }
