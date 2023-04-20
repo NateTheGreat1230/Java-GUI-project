@@ -1,10 +1,9 @@
 public class Win {
-    String result;
-    String win;
-    Boardobj brd;
-    public Win(String[][] board) {
-        result="";
+
+    public static String win(String[][] board) {
+        String result="";
         for (int i=0; i<9; i++) {
+            String win = "";
             switch(i){
                 case 0:
                     win = board[0][0]+board[0][1]+board[0][2];
@@ -42,16 +41,17 @@ public class Win {
             }
             if(win.equals("XXX")){
                 result= "X";
-
+                return result;
             }else if(win.equals("OOO")){
                 result= "O";
-
+                return result;
             }else if(win.equals("notdoneyet")){
                 result= "notdoneyet";
-
+                return result;
             }else {
                 result= "draw";
             }
         }
+        return result;
     }
 }
